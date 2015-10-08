@@ -16,7 +16,9 @@ app.use(staticServer);
 
 // Start server
 // Piggyback the socket.io connection over the same server
-var server = app.listen(8080);
+var envPort = process.env.PORT || 8080;
+var server = app.listen(envPort);
+
 var io = require("socket.io")(server);
 console.log("new user has connected");
 
